@@ -9,8 +9,8 @@ def rectify_statement(schema, recorded_statement):
 
     # Prepare the prompt for OpenAI ChatGPT
     prompt = (
-        """
-        Generate an SQL query for this Schema in SQLite Database to fetch data such that we can create bar or pie chart using the data
+        f"""
+        Generate an SQL query for this Schema in { os.getenv('DB_TYPE')} Database to fetch data such that we can create bar or pie chart using the data
         """
         f"{schema} "
         "Now, rectify and enhance the following statement based on the schema: "

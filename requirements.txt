@@ -6,3 +6,9 @@ soundfile
 streamlit
 openai 
 python-dotenv
+pymysql
+pandas
+matplotlib
+mysqlclient
+psycopg2
+datasets
