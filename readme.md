@@ -1,103 +1,64 @@
-Certainly! Here is your `README.md` in markdown format, ready to use:
+Audio-to-SQL Database Manager
+Audio-to-SQL Database Manager is an interactive Streamlit application that empowers users to query their databases using natural language audio. The app transcribes speech to text, generates SQL with LLMs, executes the query, and visualizes the results-all with support for multiple database backends and intelligent schema context reduction.
 
-```markdown
-# Audio-to-SQL Database Manager
+🚀 Features
+🎤 Audio Input: Record or upload audio queries directly in the browser.
 
-A Streamlit application that lets you record natural language audio queries, transcribe them to text, generate SQL using LLMs, and visualize the results from your database-all with multi-database support and schema-aware context reduction.
+📝 Speech-to-Text: Accurate transcription using advanced ASR models (e.g., Wav2Vec).
 
----
+🗄️ Multi-Database Support: Connects to SQLite, MySQL, or PostgreSQL using environment variables.
 
-## Features
+🤖 LLM-powered SQL Generation: Translates natural language into SQL, leveraging schema context.
 
-- 🎤 **Record Audio:** Simple Streamlit UI for recording/uploading audio queries.
-- 📝 **Speech-to-Text:** Transcribe queries using advanced ASR models (e.g., Wav2Vec).
-- 🗄️ **Multi-DB Support:** Connects to SQLite, MySQL, or PostgreSQL using environment variables.
-- 📊 **Visualize Data:** Interactive bar, line, and pie charts for query results.
-- 🧠 **Schema-Aware SQL Generation:** Extracts and reduces database schema context for accurate, efficient LLM-powered SQL generation.
-- 🛠️ **Error Handling:** Robust error handling and user feedback throughout the workflow.
+📉 Data Visualization: Interactive bar, line, and pie charts for query results.
 
----
+🛡️ Robust Error Handling: User-friendly feedback for errors and edge cases.
 
-## How It Works
-
-1. **Database Initialization:**  
-   The app reads environment variables to connect to your chosen database (SQLite/MySQL/PostgreSQL).
-
-2. **Audio Recording:**  
-   Users record or upload an audio query via the Streamlit interface.
-
-3. **Transcription:**  
-   The audio is transcribed into text using a speech recognition model.
-
-4. **Schema Extraction & Reduction:**  
-   The current database schema is fetched and reduced to relevant tables/columns based on the transcription.
-
-5. **SQL Generation:**  
-   The reduced schema and transcription are sent to an LLM, which generates an appropriate SQL query.
-
-6. **Query Execution & Visualization:**  
-   The SQL is executed, and results are displayed as interactive charts and tables.
-
----
-
-## Setup
-
-### 1. Clone the Repository
-
-```
+🛠️ Getting Started
+1. Clone the Repository
+bash
 git clone https://github.com/yourusername/audio-to-sql-db-manager.git
 cd audio-to-sql-db-manager
-```
-
-### 2. Install Dependencies
-
-```
+2. Install Dependencies
+bash
 pip install -r requirements.txt
-```
+3. Configure Environment Variables
+Create a .env file in the project root with the following (edit as needed):
 
-### 3. Configure Environment Variables
+text
+# Database type: sqlite, mysql, or postgresql
+DB_TYPE=sqlite
 
-Create a `.env` file (or set these in your environment):
+# For SQLite
+SQLITE_PATH=./data/dataset.db
 
-```
-# Choose one: sqlite, mysql, or postgresql
-DB_TYPE=sqlite (Other options include mysql and postgresql)
+# For MySQL/PostgreSQL
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_HOST=localhost
+DB_PORT=3306          # 5432 for PostgreSQL
+DB_NAME=yourdatabase
 
-# SQLite
-API_KEY= YOUR_API_KEY
-
-DB_TYPE=mysql # Currently supporting mysql and postgresql
-
-# For SQLite Database
-SQLITE_PATH=./data/dataset.db #Path from root of the project
-
-# FOR SQL DBs
-DB_USER=root # Update with actual username
-DB_PASSWORD=root # Update with actual password
-DB_HOST=localhost # Update with actual host
-DB_PORT=3306 # Update with actual port
-DB_NAME=nuestro_amazon # Update with actual database name
-```
-
-### 4. Run the App
-
-```
+# (Optional) API keys for LLMs or ASR models if required
+API_KEY=your_api_key
+4. Run the Application
+bash
 streamlit run app.py
-```
+🖥️ Usage
+Open the Streamlit app in your browser (usually at localhost:8501).
 
----
+Record or upload an audio query (e.g., “Show the number of products in each category”).
 
-## Example Usage
+The app will:
 
-1. Open the Streamlit app in your browser.
-2. Record or upload an audio query (e.g., “Show the number of products in each category”).
-3. View the transcribed text, generated SQL, and the resulting data visualization.
+Transcribe your speech
 
----
+Generate and display the SQL query
 
-## Project Structure
+Execute the query and visualize the results
 
-```
+📁 Project Structure
+text
 .
 ├── app.py                 # Main Streamlit application
 ├── models/
@@ -109,32 +70,25 @@ streamlit run app.py
 ├── requirements.txt
 ├── README.md
 └── .env
-```
+🔧 Customization
+Add new database support: Extend the schema fetcher and connection logic.
 
----
+Swap transcription model: Replace or upgrade the ASR model in models/wav2vec.py.
 
-## Extending & Customizing
+Enhance visualization: Add more chart types or dashboard features.
 
-- **Add new database support:** Extend the schema fetcher and connection logic.
-- **Swap transcription model:** Replace or upgrade the ASR model in `models/wav2vec.py`.
-- **Improve charting:** Add more visualization types or custom dashboards.
+📜 License
+This project is licensed under the MIT License.
 
----
+🙏 Acknowledgments
+Streamlit
 
-## License
+PyTorch
 
-MIT License
+OpenAI / Hugging Face Transformers
 
----
+pymysql
 
-## Acknowledgments
+psycopg2
 
-- [Streamlit](https://streamlit.io/)
-- [PyTorch](https://pytorch.org/)
-- [OpenAI](https://openai.com/) or [Hugging Face Transformers](https://huggingface.co/transformers/)
-- [pymysql](https://pymysql.readthedocs.io/en/latest/)
-- [psycopg2](https://www.psycopg.org/)
-
----
-
-**Enjoy querying your database with your voice!**
+Query your database with your voice-intuitively and efficiently!
