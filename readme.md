@@ -33,7 +33,6 @@ Transform your voice into database queries! This Streamlit application allows yo
 ```
 git clone https://github.com/dhyeyshah28801/NaturalQL
 cd audio-to-sql-db-manager
-*(Replace `yourusername/audio-to-sql-db-manager.git` with your actual repository URL)*
 ```
 ### 2. Install Dependencies
 
